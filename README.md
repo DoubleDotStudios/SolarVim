@@ -15,6 +15,7 @@
   - [Packages](#packages)
   - [Syntax Highlighters](#syntax-highlighters)
   - [LSPs](#lsps)
+- [Star Goal](#star-goal)
 
 ---
 # Introduction
@@ -100,7 +101,7 @@ To install an LSP simply type `:LspInstall language_name` and a popup will be di
 
 ---
 
-# A small goal
+### Star Goal
 
 If this repo hits 50 stars then I'll make SolarVim a proper Neovim distribution.
 
