@@ -6,6 +6,7 @@
 - [Introduction](#introduction)
   - [What is it?](#what-is-it?)
   - [What does it include?](#what-does-it-include?)
+  - [Why is it good?](#why-is-it-good?)
   - [Why call it SolarVim?](#why-call-it-solarvim?)
 - [Installation](#installation)
   - [Dependencies](#dependencies)
@@ -34,6 +35,18 @@ It includes:
 - Autopairs
 
 These are used to provide a lightweight, fully functional development environment that's ready out of the box.
+
+## Why is it good?
+After testing and configuring every major Neovim distribution (NvChad, AstroNvim, LunarVim, LazyVim), I decided what I liked and added it to SolarVim. This allowed me to take the best parts of each distribution and no more.
+
+So, here's what I took:
+- AstroNvim's neo-tree shortcuts
+- LazyVim's start menu
+- NvChad's comment toggling
+- LunarVim's intuitiveness
+- Telescope
+- Lualine
+- Which-key
 
 ## Why call it SolarVim?
 The name SolarVim is a small nod to [LunarVim](https://www.lunarvim.org/) which I believe is a great startpoint for those who want to ease into Neovim which allows you to worry less about configuration and more about how the editor works (and how you escape).
