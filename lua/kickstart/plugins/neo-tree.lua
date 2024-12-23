@@ -11,15 +11,41 @@ return {
   },
   cmd = 'Neotree',
   keys = {
-    { '\\', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
+    {
+      '<leader>e',
+      function()
+        require('neo-tree.command').execute { toggle = true, vim.fn.getcwd() }
+      end,
+      desc = 'Toggle Neotree',
+      silent = true,
+    },
+    {
+      '<leader>o',
+      function()
+        if vim.bo.filetype == 'neo-tree' then
+          vim.cmd.wincmd 'p'
+        else
+          vim.cmd.Neotree 'focus'
+        end
+      end,
+      desc = 'Focus Neotree',
+      silent = true,
+    },
   },
-  opts = {
-    filesystem = {
-      window = {
-        mappings = {
-          ['\\'] = 'close_window',
-        },
-      },
+  git_status = {
+    symbols = {
+      -- Change type
+      added = '✚',
+      modified = '',
+      deleted = '✖',
+      renamed = '󰁕',
+
+      -- Status type
+      untracked = '',
+      ignored = '',
+      unstaged = '󰄱',
+      staged = '',
+      conflict = '',
     },
   },
 }
