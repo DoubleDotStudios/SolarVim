@@ -60,6 +60,7 @@ return {
         { '<leader>d', group = 'Diagnostics' },
         { '<leader>f', group = 'Find' },
         { '<leader>g', group = 'Goto' },
+        { '<leader>n', group = 'Notifications', icon = '󰋼' },
         { '<leader>r', group = 'Rename' },
         -- { '<leader>s', group = 'Search' },
         { '<leader>t', group = 'Toggle' },
