@@ -32,20 +32,27 @@ return {
       silent = true,
     },
   },
-  git_status = {
-    symbols = {
-      -- Change type
-      added = '✚',
-      modified = '',
-      deleted = '✖',
-      renamed = '󰁕',
+  opts = {
+    filesystem = {
+      filtered_items = {
+        hide_dotfiles = false,
+      },
+    },
+    git_status = {
+      symbols = {
+        -- Change type
+        added = '✚',
+        modified = '',
+        deleted = '✖',
+        renamed = '󰁕',
 
-      -- Status type
-      untracked = '',
-      ignored = '',
-      unstaged = '󰄱',
-      staged = '',
-      conflict = '',
+        -- Status type
+        untracked = '',
+        ignored = '',
+        unstaged = '󰄱',
+        staged = '',
+        conflict = '',
+      },
     },
   },
 }
