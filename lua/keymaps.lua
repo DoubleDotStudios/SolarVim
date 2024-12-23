@@ -41,6 +41,11 @@ vim.keymap.set('n', '<M-right>', '<C-w><C-l>', { desc = 'Move focus to the right
 vim.keymap.set('n', '<M-down>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<M-up>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
+vim.keymap.set('n', '<M-S-up>', '<C-w>+', { desc = 'Increase pane height' })
+vim.keymap.set('n', '<M-S-down>', '<C-w>-', { desc = 'Decrease pane height' })
+vim.keymap.set('n', '<M-S-left>', '<C-w><', { desc = 'Decrease pane width' })
+vim.keymap.set('n', '<M-S-right>', '<C-w>>', { desc = 'Increase pane width' })
+
 vim.keymap.set({ 'i', 'n' }, '<C-e>', '<End>', { desc = 'End of the line' })
 vim.keymap.set({ 'i', 'n' }, '<C-a>', '<Home>', { desc = 'Start of the line' })
 
