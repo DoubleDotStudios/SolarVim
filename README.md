@@ -97,3 +97,11 @@ To install a syntax highlighter simply type `:TSInstall language_name` and the h
 
 ## LSPs
 To install an LSP simply type `:LspInstall language_name` and a popup will be displayed asking which LSP you would like to install for that language. Select the one you want and it'll be installed.
+
+---
+
+# A small goal
+
+If this repo hits 50 stars then I'll make SolarVim a proper Neovim distribution.
+
+Progress ( = 5 stars): \[⭘ ⭘ ⭘ ⭘ ⭘ ⭘ ⭘ ⭘ ⭘ ⭘\]
