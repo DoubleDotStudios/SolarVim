@@ -1,4 +1,8 @@
 # SolarVim
+---
+
+![Preview of SolarVim](./assets/Preview.png)
+![Preview of Programming in SolarVim](./assets/CodePreview.png)
 
 - [Introduction](#introduction)
   - [What is it?](#what-is-it?)
