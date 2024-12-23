@@ -1,6 +1,11 @@
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
+local function empty_split(split)
+  vim.cmd(split)
+  vim.cmd 'enew'
+end
+
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
@@ -26,10 +31,26 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 --  Use CTRL+<hjkl> to switch between windows
 --
 --  See `:help wincmd` for a list of all window commands
-vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
-vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
-vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+vim.keymap.set('n', '<M-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
+vim.keymap.set('n', '<M-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
+vim.keymap.set('n', '<M-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+vim.keymap.set('n', '<M-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+
+vim.keymap.set('n', '<M-left>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
+vim.keymap.set('n', '<M-right>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
+vim.keymap.set('n', '<M-down>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+vim.keymap.set('n', '<M-up>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+
+vim.keymap.set({ 'i', 'n' }, '<C-e>', '<End>', { desc = 'End of the line' })
+vim.keymap.set({ 'i', 'n' }, '<C-a>', '<Home>', { desc = 'Start of the line' })
+
+vim.keymap.set('n', '<leader>ws', '', { desc = '+Split' })
+vim.keymap.set('n', '<leader>wsv', function()
+  empty_split 'vsp'
+end, { desc = 'Open empty vspilt' })
+vim.keymap.set('n', '<leader>wsh', function()
+  empty_split 'sp'
+end, { desc = 'Open empty hspilt' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -44,5 +65,16 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
+
+vim.api.nvim_create_user_command('Q', function()
+  local buf_content = vim.api.nvim_buf_get_lines(0, 0, -1, false)
+  if #buf_content == 0 or (#buf_content == 1 and buf_content[1] == '') then
+    vim.cmd 'bd'
+  else
+    vim.cmd 'q'
+  end
+end, { desc = 'Close the buffer if empty, otherwise quit' })
+
+vim.cmd 'cabbrev q Q'
 
 -- vim: ts=2 sts=2 sw=2 et
