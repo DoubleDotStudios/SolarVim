@@ -8,8 +8,16 @@ end
 
 local function move_left_wrap()
   local col = vim.fn.col '.'
-  if col == 1 then
+
+  if vim.fn.mode() == 'i' then
+    col = col - 1
+  end
+
+  if col <= 1 then
     vim.cmd 'normal! k$'
+    if vim.fn.mode() == 'i' then
+      vim.cmd 'normal! l'
+    end
   else
     vim.cmd 'normal! h'
   end
