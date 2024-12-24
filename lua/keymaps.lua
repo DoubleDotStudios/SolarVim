@@ -6,6 +6,25 @@ local function empty_split(split)
   vim.cmd 'enew'
 end
 
+local function move_left_wrap()
+  local col = vim.fn.col '.'
+  if col == 1 then
+    vim.cmd 'normal! k$'
+  else
+    vim.cmd 'normal! h'
+  end
+end
+
+local function move_right_wrap()
+  local col = vim.fn.col '.'
+  local line_length = vim.fn.col '$' - 1
+  if col >= line_length then
+    vim.cmd 'normal! j0'
+  else
+    vim.cmd 'normal! l'
+  end
+end
+
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
@@ -56,6 +75,9 @@ end, { desc = 'Open empty vspilt' })
 vim.keymap.set('n', '<leader>wsh', function()
   empty_split 'sp'
 end, { desc = 'Open empty hspilt' })
+
+vim.keymap.set({ 'n', 'i', 'v' }, '<left>', move_left_wrap, { desc = 'Auto-wrapping cursor' })
+vim.keymap.set({ 'n', 'i', 'v' }, '<right>', move_right_wrap, { desc = 'Auto-wrapping cursor' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
