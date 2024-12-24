@@ -18,6 +18,11 @@ end
 local function move_right_wrap()
   local col = vim.fn.col '.'
   local line_length = vim.fn.col '$' - 1
+
+  if vim.fn.mode() == 'i' then
+    line_length = line_length + 1
+  end
+
   if col >= line_length then
     vim.cmd 'normal! j0'
   else
