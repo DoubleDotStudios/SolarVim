@@ -105,4 +105,4 @@ To install an LSP simply type `:LspInstall language_name` and a popup will be di
 
 If this repo hits 50 stars then I'll make SolarVim a proper Neovim distribution.
 
-Progress ( = 5 stars): \[⭘ ⭘ ⭘ ⭘ ⭘ ⭘ ⭘ ⭘ ⭘ ⭘\]
+Progress ( = 5 stars): \[ ⭘ ⭘ ⭘ ⭘ ⭘ ⭘ ⭘ ⭘ ⭘\]
